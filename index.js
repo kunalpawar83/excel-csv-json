@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
-const db = require('./db');
+const {connectDB} =  require('./db.js');
 const userRoute = require('./route/userRoute');
 
-
-db;
-
 app.use('/', userRoute);
-app.listen(3000, () => {
-    console.log('Server started on port 3000');
+
+connectDB().then(() => {
+    app.listen(3000, () => {
+        console.log('Server started on port 3000');
+    });
 });
+
