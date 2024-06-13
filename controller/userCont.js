@@ -53,10 +53,7 @@ exports.addUser= async (req, res) => {
                 message: 'Data uploaded successfully!',
                 data: data
             });
-        }else{
-            res.status(500).json({message: 'Error uploading data'});
         }
-
       } catch (err) {
         console.error('Error uploading data:', err);
         res.status(500).json({ message: 'Error: ' + err.message });
