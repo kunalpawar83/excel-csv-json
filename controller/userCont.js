@@ -66,30 +66,30 @@ exports.getAllData = async (req, res) => {
     res.json(data);
 };
 
-// Upload CSV file
-// exports.addUserCsv = async (req, res) => {
-//     try{
-//         csv().fromFile(req.file.path).then((jsonObj)=>{
-//             const users = jsonObj.map(user => {
-//                 return new User({
-//                     name: user.name,
-//                     email: user.email,
-//                     mobile: user.mobile
-//                 });
-//             });
-//             User.insertMany(users).then((data)=>{
-//                 console.log(data);
-//             }).catch((err)=>{
-//                 console.log(err);
-//             });
-//         })
+//Upload CSV file
+exports.addUserCsv = async (req, res) => {
+    try{
+        csv().fromFile(req.file.path).then((jsonObj)=>{
+            const users = jsonObj.map(user => {
+                return new User({
+                    name: user.name,
+                    email: user.email,
+                    mobile: user.mobile
+                });
+            });
+            User.insertMany(users).then((data)=>{
+                console.log(data);
+            }).catch((err)=>{
+                console.log(err);
+            });
+        })
 
-//         res.status(200).json({message: 'Data uploaded successfully'});
-//     }catch(err){
-//         console.log(err);
-//         res.status(500).json({message: 'Error uploading data'});
-//     }
-// };
+        res.status(200).json({message: 'Data uploaded successfully'});
+    }catch(err){
+        console.log(err);
+        res.status(500).json({message: 'Error uploading data'});
+    }
+};
 
 // Upload Excel file
 // exports.addUserExcel = async (req, res) => {
