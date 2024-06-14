@@ -7,6 +7,7 @@ const path = require('path');
 exports.addUser= async (req, res) => {
     const file  = req.file.originalname;
     let filename  = file.split('.')[1];
+    console.log(filename);
     try {
         if(filename == 'json'){
         // Read the uploaded JSON file
