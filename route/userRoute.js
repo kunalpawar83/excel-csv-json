@@ -12,7 +12,7 @@ user.use(express.static(path.resolve(__dirname, 'public')));
 
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, './public/uploads'));
+        cb(null, './public/uploads')
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname)
