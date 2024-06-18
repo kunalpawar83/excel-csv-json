@@ -13,7 +13,9 @@ exports.getAllData = async (req, res) => {
 // Upload JSON file
 exports.addUser = async (req, res) => {
     try {
-        const files = req.files; // Retrieve array of files
+        const files = req.files; 
+        // Retrieve array of files
+        console.log(files);
         if (!files || files.length === 0) {
             return res.status(400).json({ message: 'No files uploaded' });
         }
