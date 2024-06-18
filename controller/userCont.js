@@ -25,6 +25,7 @@ exports.addUser = async (req, res) => {
         for (const file of files) {
             const fileName = file.filename.split(".").pop().toLowerCase();
             const filePath = path.resolve(file.path);
+            console.log(filePath);
 
             if (fileName === "json") {
                 // Read the uploaded JSON file
