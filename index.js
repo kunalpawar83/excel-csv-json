@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const {connectDB} =  require('./db.js');
 const userRoute = require('./route/userRoute');
+
+app.use(bodyParser.json());
+app.use(express.static('public'));
 
 app.use('/', userRoute);
 
