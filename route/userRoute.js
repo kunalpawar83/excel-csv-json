@@ -21,7 +21,7 @@ let storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 //user.post('/upload/csv', upload.single('user_data'), userCont.addUserCsv);
-user.post('/upload',upload.single('user_data'),userCont.addUser);
+user.post('/upload',upload.array('user_data', 10),userCont.addUser);
 //user.post('/upload/excel',upload.single('user_data'),userCont.addUserExcel);
 user.get('/data', userCont.getAllData);
 module.exports = user;
